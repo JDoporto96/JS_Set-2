@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="text1">
+        "...should never use yolo for any reasons, yolo..."
+    </div>
+    
+    <script type="text/javascript">
+        function addHashtag(container,str,url){
+            var cont=document.getElementById(container);
+            cont.innerHTML= cont.innerHTML.replaceAll(str,'<a href="'+url+'">#'+str+'</a>');
+           
+        }
+        addHashtag("text1","yolo","https://twitter.com/search?q=yolo&src=typed_query");
+
+
+    </script>
+</body>
+</html>
