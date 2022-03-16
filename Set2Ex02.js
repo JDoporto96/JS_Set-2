@@ -1,46 +1,46 @@
 //Ex02
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-function regTest(regexp,string){
-    if(regexp.test(string)){
-        console.log("Test passed")
-    }
-    else{
-        console.log("Not a correct string")
-    }
-}
+
 
 //A.
-regTest(/\w\s\d{2}\,\s\d{4}/, "September 29, 1972");
-regTest(/\w\s\d{2}\,\s\d{4}/, "February 99, 0001");
-regTest(/\w\s\d{2}\,\s\d{4}/, "June 04, 3000");
+const date=/(january|february|march|april|may|june|july|august|september|october|november|december)\s\d{2}\,\s\d{4}/i
+console.log(date.test("September 29, 1972"));
+console.log(date.test("February 99, 0001"));
+console.log(date.test("June 04, 3020"));
+console.log(date.test("Julywe 14, 3020"));
+
+
 
 //B.
-regTest(/[a-zA-Z]\d|\d[a-zA-Z]/, "A52");
-regTest(/[a-zA-Z]\d|\d[a-zA-Z]/, "d747");
-regTest(/[a-zA-Z]\d|\d[a-zA-Z]/, "27X");
-regTest(/[a-zA-Z]\d|\d[a-zA-Z]/, "v2");
+const lettNum=/[a-zA-Z]\d|\d[a-zA-Z]/
+console.log(lettNum.test("A52"));
+console.log(lettNum.test( "d747"));
+console.log(lettNum.test( "27X"));
+console.log(lettNum.test("v2"));
 
 //C.
-regTest(/^[a-zA-Z]+\.txt|java|cpp$/, "test.java");
-regTest(/^[a-zA-Z]+\.txt|java|cpp$/, "program.cpp");
-regTest(/^[a-zA-Z]+\.txt|java|cpp$/, "newReport.txt");
+const extention= /^[a-z]+\.(txt|cpp|java)$/i
+console.log(extention.test("test.java"));
+console.log(extention.test("program.cpp"));
+console.log(extention.test("newReport.txt"));
+console.log(extention.test("j.txtx"));
+
 
 //D.
-regTest(/(.)(.).\2\1/, "abcba");
-regTest(/(.)(.).\2\1/, "12321");
-regTest(/(.)(.).\2\1/, "_1a1_");
+const pali5=/(.)(.).\2\1/
+console.log(pali5.test( "abcba"));
+console.log(pali5.test( "12321"));
+console.log(pali5.test( "_1a1_"));
 
 
 //E.
-function regExArray(str,regExp){
-    var tempArray = str.split(/\s+/);
-    var result = tempArray.filter(word => !regExp.test(word));
-    return result;
+function regExArray(input,regExp){
+    return input.match(regExp); 
 }
 
 const input ="Bee zapp Crow Eagle Zorro  mouse Ape  you",
-regExp =/[aAzZ]+/;
+regExp =/\b[b-y]+\b/ig;
 console.log(regExArray(input,regExp));
 
 //F.
@@ -48,7 +48,5 @@ const input2="Is <b>4 <em>hello </em> < -1/12</b> true? The <b>answer</b> will <
 regExp2 =/<(.+?)>.+?<\/\1>/g;
 
 console.log(input2.match(regExp2));
-
-
 
 
