@@ -4,11 +4,11 @@
 
 
 //A.
-const date=/(january|february|march|april|may|june|july|august|september|october|november|december)\s\d{2}\,\s\d{4}/i
+const date=/(\w*uary\b|march|april|may|june|july|august|\w*ber\b)\s\d{2}\,\s\d{4}/i
 console.log(date.test("September 29, 1972"));
 console.log(date.test("February 99, 0001"));
 console.log(date.test("June 04, 3020"));
-console.log(date.test("Julywe 14, 3020"));
+console.log(date.test("uary 14, 3020"));
 
 
 

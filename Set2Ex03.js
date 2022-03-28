@@ -3,30 +3,29 @@
 //-------------------------------------------------------------------------------------------------
 
 //A.
-function cycleShift2(string, k=1) {
-    let result = '';
+function cycleShift(str) {
+    return str.replace(/[a-z 0-9]/ig, cycle)
+}
 
-    for (let char of string) {
-        var charCode = char.charCodeAt();
+function cycle(char){
+    let charCode = char.charCodeAt();
         if(charCode ==57){
             charCode-=9;
         }
-        else if(charCode==90 || charCode==122){
+        else if(/z/i.test(char)){
             charCode-=25;
         }
         else{
             charCode++;
         }
        
-        result += String.fromCharCode(charCode);
-        
-    }
-    return result
+    return String.fromCharCode(charCode);
 }
 
-console.log(cycleShift2('aBc',1));
-console.log(cycleShift2('xyz',1));
-console.log(cycleShift2('aK89',1));
+
+console.log(cycleShift('aBc'));
+console.log(cycleShift('xyz'));
+console.log(cycleShift('aK89'));
 
 
 //C.
