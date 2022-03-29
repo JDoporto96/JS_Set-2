@@ -4,7 +4,7 @@
 
 //A.
 function cycleShift(str) {
-    return str.replace(/[a-z 0-9]/ig, cycle)
+    return str.replace(/[a-z0-9]/ig, cycle)
 }
 
 function cycle(char){
@@ -23,7 +23,7 @@ function cycle(char){
 }
 
 
-console.log(cycleShift('aBc'));
+console.log(cycleShift('aBc '));
 console.log(cycleShift('xyz'));
 console.log(cycleShift('aK89'));
 
